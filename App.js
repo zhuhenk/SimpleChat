@@ -1,29 +1,41 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
-import { StatusBar } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Alert } from 'react-native';
+import { firebaseService } from './services';
+import Loader from './src/components/common/Loader';
 import Chat from './src/components/chat';
 
+
 const App: () => React$Node = () => {
-  const mock = [
-    { id: 1, message: 'Hello', side: 'left' },
-    { id: 2, message: 'Hi!', side: 'right' },
-    { id: 3, message: 'Hello', side: 'left' },
-    { id: 4, message: 'Hi!', side: 'right' }
-  ]
+
+  // const [user, setUser] = useState(null)
+
+  // useEffect(
+  //   function () {
+  //     firebaseService.signIn()
+  //       .then(({ user, error }) => {
+  //         if (error) {
+  //           Alert.alert('Something went wrong')
+  //           return
+  //         }
+
+  //         setUser(user)
+  //       })
+  //   },
+  //   [false]
+  // )
+
+  // if (!user) {
+  //   return <>
+  //     <Loader />
+  //   </>
+  // }
 
   return (
     <>
       <StatusBar barStyle="light-content" />
       <Chat />
     </>
-  );
+  )
 };
 
 export default App;
