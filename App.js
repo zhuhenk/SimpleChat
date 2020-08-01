@@ -7,14 +7,8 @@
  */
 
 import React from 'react';
-import {
-  FlatList, SafeAreaView,
-  StatusBar, StyleSheet,
-  View
-} from 'react-native';
-import Input from './src/components/input';
-import Message from './src/components/Message';
-
+import { StatusBar } from 'react-native';
+import Chat from './src/components/chat';
 
 const App: () => React$Node = () => {
   const mock = [
@@ -27,44 +21,9 @@ const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <SafeAreaView>
-        <View style={styles.messagesContainer}>
-          <FlatList
-            inverted
-            data={mock}
-            keyExtractor={function (item) {
-              return item.id
-            }}
-            renderItem={function ({ item }) {
-              return (
-                <Message side={item.side} message={item.message} />
-              )
-            }}
-          />
-        </View>
-
-        <View style={styles.inputContainer}>
-          <Input />
-        </View>
-      </SafeAreaView>
+      <Chat />
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  messagesContainer: {
-    height: '100%',
-    paddingBottom: 100
-  },
-  inputContainer: {
-    width: '100%',
-    height: 100,
-    position: 'absolute',
-    bottom: 0,
-    paddingVertical: 10,
-    paddingLeft: 20,
-    borderTopWidth: 1,
-  }
-});
 
 export default App;
