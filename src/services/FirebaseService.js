@@ -1,16 +1,14 @@
-import firebase from 'react-native-firebase'
-import { COLLECTIONS } from '../constants'
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import { COLLECTIONS } from '../constants';
 
 export default class FirebaseService {
-    auth = firebase.auth()
 
-    firestore = firebase.firestore()
-
-    messageRef = this.firestore.collection(COLLECTIONS.MESSAGES);
+    messageRef = firestore().collection(COLLECTIONS.MESSAGES);
 
     async signIn() {
         try {
-            const response = await this.auth.signInAnonymously()
+            const response = await auth().signInAnonymously();
             return { user: response.user }
         } catch (error) {
             return { error }

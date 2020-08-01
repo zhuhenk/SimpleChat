@@ -1,38 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { Alert } from 'react-native';
-import { firebaseService } from './services';
+import Chat from './src/components/Chat';
 import Loader from './src/components/common/Loader';
-import Chat from './src/components/chat';
-
+import { firebaseService } from './src/services';
 
 const App: () => React$Node = () => {
 
-  // const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null)
 
-  // useEffect(
-  //   function () {
-  //     firebaseService.signIn()
-  //       .then(({ user, error }) => {
-  //         if (error) {
-  //           Alert.alert('Something went wrong')
-  //           return
-  //         }
+  useEffect(
+    function () {
+      firebaseService.signIn()
+        .then(({ user, error }) => {
+          if (error) {
+            Alert.alert('Something went wrong')
+            return
+          }
 
-  //         setUser(user)
-  //       })
-  //   },
-  //   [false]
-  // )
+          setUser(user)
+        })
+    },
+    [false]
+  )
 
-  // if (!user) {
-  //   return <>
-  //     <Loader />
-  //   </>
-  // }
+  if (!user) {
+    return <>
+      <Loader />
+    </>
+  }
+
+  console.log(user);
 
   return (
     <>
-      <StatusBar barStyle="light-content" />
       <Chat />
     </>
   )

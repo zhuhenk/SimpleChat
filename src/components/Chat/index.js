@@ -7,10 +7,10 @@ import { chatRoomStyles as styles } from '../../styles'
 
 export default function Chat() {
     const mock = [
-        { id: 1, message: 'Hello', side: 'left' },
-        { id: 2, message: 'Hi!', side: 'right' },
-        { id: 3, message: 'Hello', side: 'left' },
-        { id: 4, message: 'Hi!', side: 'right' }
+        { id: "1", message: 'Hello', side: 'left' },
+        { id: "2", message: 'Hi!', side: 'right' },
+        { id: "3", message: 'Hello', side: 'left' },
+        { id: "4", message: 'Hi!', side: 'right' }
     ]
 
     return (
